@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/v1";
+const API_URL = "https://abdurahim.maktab16.uz/api/v1";
 
 const api = axios.create({
   baseURL: API_URL,
@@ -58,11 +58,11 @@ export const deleteCar = async (id) => {
 const handleError = (error) => {
   if (error.response) {
     return new Error(
-      error.response.data.message || "Serverda xatolik yuz berdi"
+      error.response.data.message || "Serverda xatolik yuz berdi",
     );
   } else if (error.request) {
     return new Error(
-      "Server bilan aloqa yo'q. Backend ishga tushirilganligini tekshiring."
+      "Server bilan aloqa yo'q. Backend ishga tushirilganligini tekshiring.",
     );
   } else {
     return new Error(error.message);

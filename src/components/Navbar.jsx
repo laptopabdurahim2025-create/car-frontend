@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
           <FaCar className="logo-icon" />
-          <span>Car CRUD</span>
+          <span>Car</span>
         </Link>
 
         <button className="navbar-toggle" onClick={toggleMenu}>
