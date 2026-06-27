@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
           <FaCar className="logo-icon" />
-          <span>Car CRUD</span>
+          <span>Cars World</span>
         </Link>
 
         <div className="navbar-right">
