@@ -4,67 +4,37 @@ const API_URL = "https://abdurahim.maktab16.uz/api/v1";
 
 const api = axios.create({
   baseURL: API_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
+  headers: { "Content-Type": "application/json" },
   timeout: 10000,
 });
 
+// Token qo'shish
+const authHeader = () => {
+  const token = localStorage.getItem("token");
+  return token ? { Authorization: `Bearer ${token}` } : {};
+};
+
 export const getAllCars = async () => {
-  try {
-    const response = await api.get("/cars");
-    return response.data;
-  } catch (error) {
-    throw handleError(error);
-  }
+  const res = await api.get("/cars");
+  return res.data;
 };
 
 export const getCarById = async (id) => {
-  try {
-    const response = await api.get(`/cars/${id}`);
-    return response.data;
-  } catch (error) {
-    throw handleError(error);
-  }
+  const res = await api.get(`/cars/${id}`);
+  return res.data;
 };
 
 export const createCar = async (carData) => {
-  try {
-    const response = await api.post("/cars", carData);
-    return response.data;
-  } catch (error) {
-    throw handleError(error);
-  }
+  const res = await api.post("/cars", carData, { headers: authHeader() });
+  return res.data;
 };
 
 export const updateCar = async (id, carData) => {
-  try {
-    const response = await api.put(`/cars/${id}`, carData);
-    return response.data;
-  } catch (error) {
-    throw handleError(error);
-  }
+  const res = await api.put(`/cars/${id}`, carData, { headers: authHeader() });
+  return res.data;
 };
 
 export const deleteCar = async (id) => {
-  try {
-    const response = await api.delete(`/cars/${id}`);
-    return response.data;
-  } catch (error) {
-    throw handleError(error);
-  }
-};
-
-const handleError = (error) => {
-  if (error.response) {
-    return new Error(
-      error.response.data.message || "Serverda xatolik yuz berdi",
-    );
-  } else if (error.request) {
-    return new Error(
-      "Server bilan aloqa yo'q. Backend ishga tushirilganligini tekshiring.",
-    );
-  } else {
-    return new Error(error.message);
-  }
+  const res = await api.delete(`/cars/${id}`, { headers: authHeader() });
+  return res.data;
 };
