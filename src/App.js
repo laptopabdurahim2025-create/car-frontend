@@ -89,7 +89,7 @@ function App() {
             </div>
           </main>
           <footer className="footer">
-            <p>© {new Date().getFullYear()} Car CRUD — MERN Stack</p>
+            <p>© {new Date().getFullYear()} Cars World — MERN Stack</p>
           </footer>
         </Router>
       </AuthProvider>

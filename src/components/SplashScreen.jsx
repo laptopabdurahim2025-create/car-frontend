@@ -5,7 +5,7 @@ const SplashScreen = () => {
     <div className="splash-screen">
       <div className="splash-content">
         <div className="splash-car-icon">🚗</div>
-        <h1 className="splash-title">Car CRUD</h1>
+        <h1 className="splash-title">Cars World</h1>
         <p className="splash-subtitle">Mashinalar boshqaruv tizimi</p>
         <div className="splash-loader">
           <div className="splash-dot"></div>
